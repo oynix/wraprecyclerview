@@ -36,6 +36,8 @@ import butterknife.InjectView;
 public class GankFragment extends Fragment implements GankContract.View, SwipeRefreshLayout.OnRefreshListener, SwipeToLoadHelper.LoadMoreListener {
 
     private static final String GANK_DATA_KEY = "gank_fragment_data_key";
+    private AdapterWrapper mAdapterWrapper;
+    private SwipeToLoadHelper mLoadMoreHelper;
 
     /** 创建instance */
     public static GankFragment newInstance(@NonNull String type) {
@@ -64,8 +66,6 @@ public class GankFragment extends Fragment implements GankContract.View, SwipeRe
     TextView mTvLoadFailed;
 
     private RecyclerView.LayoutManager mLayoutManager;
-    private SwipeToLoadHelper mLoadMoreHelper;
-    private AdapterWrapper mAdapterWrapper;
 
     @Override
     public void onAttach(Activity activity) {
@@ -111,9 +111,8 @@ public class GankFragment extends Fragment implements GankContract.View, SwipeRe
     @Override
     public void setListData(List<GankNewsBean> listData) {
         mAdapterWrapper = new AdapterWrapper(new GankNewsAdapter(this, listData, mFragmentType));
-        mLoadMoreHelper = new SwipeToLoadHelper(mLayoutManager, mAdapterWrapper);
+        mLoadMoreHelper = new SwipeToLoadHelper(mRecyclerView, mAdapterWrapper);
         mLoadMoreHelper.setLoadMoreListener(this);
-        mRecyclerView.addOnScrollListener(mLoadMoreHelper);
 
         mRecyclerView.setAdapter(mAdapterWrapper);
     }
@@ -122,11 +121,15 @@ public class GankFragment extends Fragment implements GankContract.View, SwipeRe
     @Override
     public void onRefresh() {
         mPresenter.onRefresh();
+        // 刷新时禁用上拉加载更多
+        mLoadMoreHelper.setSwipeToLoadEnabled(false);
     }
 
     @Override
     public void onRefreshComplete() {
         mSwipeRefreshLayout.setRefreshing(false);
+        // 刷新完成是解禁上拉加载更多
+        mLoadMoreHelper.setSwipeToLoadEnabled(true);
         mAdapterWrapper.notifyDataSetChanged();
     }
 

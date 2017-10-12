@@ -17,6 +17,7 @@ import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 public class SwipeToLoadHelper extends RecyclerView.OnScrollListener {
 
+    private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private AdapterWrapper mAdapterWrapper;
     private LoadMoreListener mListener;
@@ -25,8 +26,8 @@ public class SwipeToLoadHelper extends RecyclerView.OnScrollListener {
     /** 上拉刷新功能是否开启 */
     private boolean mIsSwipeToLoadEnabled = true;
 
-    public SwipeToLoadHelper(RecyclerView.LayoutManager layoutManager, AdapterWrapper adapterWrapper) {
-        mLayoutManager = layoutManager;
+    public SwipeToLoadHelper(RecyclerView recyclerView, AdapterWrapper adapterWrapper) {
+        mLayoutManager = recyclerView.getLayoutManager();
         mAdapterWrapper = adapterWrapper;
 
         if (mLayoutManager instanceof GridLayoutManager) {
@@ -35,6 +36,9 @@ public class SwipeToLoadHelper extends RecyclerView.OnScrollListener {
         } else if (mLayoutManager instanceof LinearLayoutManager) {
             mAdapterWrapper.setAdapterType(AdapterWrapper.ADAPTER_TYPE_LINEAR);
         }
+
+        // 将OnScrollListener设置RecyclerView
+        recyclerView.addOnScrollListener(this);
     }
 
     @Override
