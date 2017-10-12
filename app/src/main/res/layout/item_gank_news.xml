@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/gank_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_toStartOf="@+id/gank_item_image"
+        android:textColor="#4d4d4d"
+        android:textSize="16dp"
+        tools:text="几个简单又实用的PHP函数"/>
+
+    <TextView
+        android:id="@+id/gank_item_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/gank_item_title"
+        android:layout_below="@id/gank_item_title"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#999999"
+        android:textSize="12dp"
+        tools:text="8小时前发表"/>
+
+    <ImageView
+        android:id="@+id/gank_item_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_alignParentBottom="true"
+        android:background="#d0d0d0"/>
+</RelativeLayout>
