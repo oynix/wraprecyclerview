@@ -80,6 +80,7 @@ public class AdapterWrapper extends RecyclerView.Adapter {
             // 最后一项 不需要做什么额外的事
         } else if (position < mAdapter.getItemCount()){
             // 正常情况
+            holder.itemView.setVisibility(View.VISIBLE);
             mAdapter.onBindViewHolder(holder, position);
         } else {
             // 网格的补空的情况
