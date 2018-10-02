@@ -1,5 +1,6 @@
 package com.oy.wrapperrecyclerview;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -42,7 +43,7 @@ public class SwipeToLoadHelper extends RecyclerView.OnScrollListener {
     }
 
     @Override
-    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
         if (mIsSwipeToLoadEnabled && SCROLL_STATE_IDLE == newState && !mLoading) {
             if (mLayoutManager instanceof GridLayoutManager) {
                 final GridLayoutManager gridLayoutManager = (GridLayoutManager) mLayoutManager;
@@ -90,7 +91,7 @@ public class SwipeToLoadHelper extends RecyclerView.OnScrollListener {
     }
 
     @Override
-    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+    public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
     }
 

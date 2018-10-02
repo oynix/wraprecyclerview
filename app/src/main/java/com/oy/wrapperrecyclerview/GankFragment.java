@@ -24,8 +24,8 @@ import com.oy.wrapperrecyclerview.contract.GankPresenter;
 
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Author   : xiaoyu
@@ -53,16 +53,16 @@ public class GankFragment extends Fragment implements GankContract.View, SwipeRe
 
     private String mFragmentType;
 
-    @InjectView(R.id.gank_swipe_refresh_layout)
+    @BindView(R.id.gank_swipe_refresh_layout)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
-    @InjectView(R.id.gank_recycler_view)
+    @BindView(R.id.gank_recycler_view)
     RecyclerView mRecyclerView;
 
-    @InjectView(R.id.gank_loading)
+    @BindView(R.id.gank_loading)
     ProgressBar mProgressBar;
 
-    @InjectView(R.id.gank_load_failed_tv)
+    @BindView(R.id.gank_load_failed_tv)
     TextView mTvLoadFailed;
 
     private RecyclerView.LayoutManager mLayoutManager;
@@ -88,7 +88,7 @@ public class GankFragment extends Fragment implements GankContract.View, SwipeRe
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
         if (mFragmentType.equals("福利")) {

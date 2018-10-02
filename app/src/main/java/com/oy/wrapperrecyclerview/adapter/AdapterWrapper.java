@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.oy.wrapperrecyclerview.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Author   : xiaoyu
@@ -135,15 +135,15 @@ public class AdapterWrapper extends RecyclerView.Adapter {
 
     class WrapperHolder extends RecyclerView.ViewHolder {
 
-        @InjectView(R.id.item_load_tv)
+        @BindView(R.id.item_load_tv)
         TextView mLoadTv;
 
-        @InjectView(R.id.item_load_pb)
+        @BindView(R.id.item_load_pb)
         ProgressBar mLoadPb;
 
         WrapperHolder(View itemView) {
             super(itemView);
-            ButterKnife.inject(this, itemView);
+            ButterKnife.bind(this, itemView);
         }
 
         void setLoadText(CharSequence text) {

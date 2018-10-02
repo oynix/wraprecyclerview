@@ -10,12 +10,12 @@ import com.oy.wrapperrecyclerview.adapter.GankViewPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class MainActivity extends AppCompatActivity {
 
-    @InjectView(R.id.gank_view_pager)
+    @BindView(R.id.gank_view_pager)
     ViewPager mViewPager;
 
     private List<String> mFragmentType = new ArrayList<String>(){
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         mViewPager.setAdapter(new GankViewPagerAdapter(getSupportFragmentManager(), mFragmentType));
     }
