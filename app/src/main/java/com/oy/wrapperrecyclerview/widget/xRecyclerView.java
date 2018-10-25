@@ -119,7 +119,9 @@ public class xRecyclerView extends SwipeRefreshLayout {
         if (mLoadingMore) {
             mLoadingMore = false;
         }
-        mXAdapter.hideLoadMoreItem();
+        if (mXAdapter != null) {
+            mXAdapter.hideLoadMoreItem();
+        }
     }
 
     /**
