@@ -1,4 +1,4 @@
-package com.oy.wrapperrecyclerview;
+package com.oy.wrapperrecyclerview.deprecated;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
@@ -6,16 +6,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.oy.wrapperrecyclerview.adapter.AdapterWrapper;
-
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 /**
  * Author   : xiaoyu
  * Date     : 2017/10/11 14:53
  * Describe : 上滑加载更多操作辅助类
+ * @deprecated
  */
-
 public class SwipeToLoadHelper extends RecyclerView.OnScrollListener {
 
     private RecyclerView mRecyclerView;

@@ -1,4 +1,4 @@
-package com.oy.wrapperrecyclerview.adapter;
+package com.oy.wrapperrecyclerview.deprecated;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -21,8 +21,8 @@ import butterknife.ButterKnife;
  * // 4. 隐藏"滑动加载更多条目"时, item数量减1
  * // 5. 更新操作调用原生adapter的notifyDataSetChanged()
  * // 6. 不支持StaggeredGridLayoutManager
+ * @deprecated
  */
-
 public class AdapterWrapper extends RecyclerView.Adapter {
 
     /** 线性 */

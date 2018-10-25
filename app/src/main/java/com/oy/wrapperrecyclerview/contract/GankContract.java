@@ -12,15 +12,17 @@ import java.util.List;
 
 public interface GankContract {
     interface View {
-        void setPageState(boolean isLoading);
-        void setListData(List<GankNewsBean> listData);
-        void onRefreshComplete();
-        void onLoadMoreComplete();
+//        void setPageState(boolean isLoading);
+        void setListData(List<GankNewsBean> listData, String type);
+//        void onRefreshComplete();
+//        void onLoadMoreComplete();
         void onInitLoadFailed();
+        void stopRefresh();
+        void stopLoadMore();
     }
     interface Presenter {
         void onViewCreate();
-        void onRefresh();
-        void onLoadMore();
+        void startRefresh();
+        void startLoadMore();
     }
 }

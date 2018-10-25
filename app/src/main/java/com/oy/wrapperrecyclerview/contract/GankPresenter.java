@@ -1,6 +1,7 @@
 package com.oy.wrapperrecyclerview.contract;
 
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import android.util.Log;
+
 import com.oy.wrapperrecyclerview.bean.GankNewsBean;
 import com.oy.wrapperrecyclerview.bean.GankResponseBean;
 
@@ -12,6 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -45,54 +47,47 @@ public class GankPresenter implements GankContract.Presenter {
 
     @Override
     public void onViewCreate() {
-        mView.setPageState(true);
         mCurrentPage = 1;
-        loadData(0);
+        loadData();
     }
 
     @Override
-    public void onRefresh() {
+    public void startRefresh() {
         mCurrentPage = 1;
-        loadData(1);
+        loadData();
     }
 
     @Override
-    public void onLoadMore() {
+    public void startLoadMore() {
         mCurrentPage++;
-        loadData(2);
+        loadData();
     }
 
-    // 0 : 初始化请求
-    // 1 : refresh请求
-    // 2 : loadMore请求
-    private void loadData(final int requestDataType) {
+    private void loadData() {
         mUrlService.requestData(mType, 20, mCurrentPage)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<GankResponseBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
                     }
 
                     @Override
                     public void onNext(GankResponseBean value) {
-                        switch (requestDataType) {
-                            case 0: // init
-                                mListData.clear();
-                                mListData.addAll(value.getResults());
-                                mView.setListData(mListData);
-                                mView.setPageState(false);
-                                break;
-                            case 1: // refresh
-                                mListData.clear();
-                                mListData.addAll(value.getResults());
-                                mView.onRefreshComplete();
-                                break;
-                            case 2: // load more
-                                mListData.addAll(value.getResults());
-                                mView.onLoadMoreComplete();
-                                break;
+                        // 首次或刷新
+                        if (mCurrentPage == 1)
+                            mListData.clear();
+
+                        // 刷新数据
+                        mListData.addAll(value.getResults());
+                        mView.setListData(mListData, mType);
+
+                        Log.e("adapter", "page:" + mCurrentPage + ", size:" + mListData.size());
+                        // 更新视图
+                        if (mCurrentPage == 1) {
+                            mView.stopRefresh();
+                        } else {
+                            mView.stopLoadMore();
                         }
                     }
 

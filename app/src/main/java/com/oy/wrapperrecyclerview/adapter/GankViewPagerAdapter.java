@@ -13,7 +13,6 @@ import java.util.List;
  * Date     : 2017/9/28 11:19
  * Describe :
  */
-
 public class GankViewPagerAdapter extends FragmentPagerAdapter {
 
     private List<String> mTitleList;
