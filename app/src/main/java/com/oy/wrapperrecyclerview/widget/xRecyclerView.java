@@ -272,15 +272,19 @@ public class xRecyclerView extends SwipeRefreshLayout {
                 if (mLoadingMore) {
                     return;
                 }
+                View child = linearLayoutManager.findViewByPosition(lastCompletePosition);
+                if (child == null)
+                    return;
                 if (lastCompletePosition == mAdapter.getItemCount() - 2) {
-                    View child = linearLayoutManager.findViewByPosition(lastCompletePosition);
-                    if (child == null)
-                        return;
                     int deltaY = (recyclerView.getBottom() - recyclerView.getPaddingBottom()) - child.getBottom();
                     if (deltaY > 0) {
                         recyclerView.smoothScrollBy(0, -deltaY);
                     }
                 } else if (lastCompletePosition == mAdapter.getItemCount() - 1) {
+                    // load more item为最后完整可见时，判断此时item bottom和parent height关系
+                    if (recyclerView.getHeight() > child.getBottom()) {
+                        return;
+                    }
                     mLoadingMore = true;
                     mAdapter.switchLoadMoreState(true);
                     if (mListener != null) {

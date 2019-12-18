@@ -70,17 +70,21 @@ public class GankNewsAdapter extends xRecyclerView.xAdapter<GankNewsAdapter.MyVi
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        @Nullable@BindView(R.id.gank_item_title)
+        @Nullable
+        @BindView(R.id.gank_item_title)
         TextView title;
 
-        @Nullable@BindView(R.id.gank_item_subtitle)
+        @Nullable
+        @BindView(R.id.gank_item_subtitle)
         TextView subtitle;
 
-        @Nullable@BindView(R.id.gank_item_image)
+        @Nullable
+        @BindView(R.id.gank_item_image)
         ImageView image;
 
         // FULI fragment
-        @Nullable@BindView(R.id.gank_item_image_fuli)
+        @Nullable
+        @BindView(R.id.gank_item_image_fuli)
         ImageView imageFuli;
 
         MyViewHolder(View itemView) {
