@@ -162,8 +162,7 @@ public class xRecyclerView extends SwipeRefreshLayout {
         @Override
         public VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int itemType) {
             if (itemType == ITEM_TYPE_LOADMORE) {
-                return (VH) (mLoadMoreItemHolder = new RecyclerView.ViewHolder(createLoadMoreView(viewGroup)) {
-                });
+                return (VH) (mLoadMoreItemHolder = new RecyclerView.ViewHolder(createLoadMoreView(viewGroup)) {});
             }
             return onCreatexViewHolder(viewGroup, itemType);
         }
