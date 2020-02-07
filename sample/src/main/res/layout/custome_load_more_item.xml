@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#cccccc"
+    android:gravity="center"
+    android:minHeight="40dp">
+
+    <ProgressBar
+        android:id="@+id/lm_pb"
+        android:layout_width="15dp"
+        android:layout_height="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载更多"
+        android:textSize="12sp" />
+
+</LinearLayout>
