@@ -139,23 +139,6 @@ public class xRecyclerView extends SwipeRefreshLayout {
         if (mState != STATE_LOADINGMORE)
             return;
         switchState(STATE_IDLE);
-//        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
-//        if (linearLayoutManager == null) {
-//            return;
-//        }
-//        int lp = linearLayoutManager.findLastVisibleItemPosition();
-//
-//        if (mXAdapter.getItemCount() - 1 == lp) {
-//            View child = linearLayoutManager.findViewByPosition(mXAdapter.getItemCount() - 2);
-//            if (child == null) {
-//                return;
-//            }
-//            // mRecyclerView topMargin=0 childPosition=0, mRecyclerView.getBottom即为height
-//            int inHeight = mRecyclerView.getBottom() - mRecyclerView.getPaddingBottom();
-//            int childBottom = child.getBottom();
-//            int deltaY = inHeight - childBottom;
-//            mRecyclerView.smoothScrollBy(0, -deltaY);
-//        }
     }
 
     // 切换状态，[STATE_IDLE, STATE_REFRESHING, STATE_LOADINGMORE]
