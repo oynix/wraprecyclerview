@@ -1,4 +1,4 @@
-package com.github.oynix.library;
+package com.oynix.oynix.library;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.github.oynix.library;
+package com.oynix.xrecyclerview;
 
 import android.content.Context;
 import android.graphics.Color;
