@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.github.oynix.library.xRecyclerView;
 import com.oy.wrapperrecyclerview.adapter.GankNewsAdapter;
 import com.oy.wrapperrecyclerview.bean.GankNewsBean;
 import com.oy.wrapperrecyclerview.contract.GankContract;
@@ -19,7 +20,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.oynix.library.xRecyclerView;
 
 /**
  * Author   : xiaoyu

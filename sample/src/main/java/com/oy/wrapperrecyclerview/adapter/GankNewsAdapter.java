@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.github.oynix.library.xRecyclerView;
 import com.oy.wrapperrecyclerview.R;
 import com.oy.wrapperrecyclerview.bean.GankNewsBean;
 
@@ -16,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.oynix.library.xRecyclerView;
 
 /**
  * Author   : xiaoyu
