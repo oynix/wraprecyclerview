@@ -354,8 +354,15 @@ public class xRecyclerView extends SwipeRefreshLayout {
                 }
                 if (lastCompletePosition == mAdapter.getItemCount() - 2) {
                     int deltaY = rvInHeight - child.getBottom();
+                    // 滑动至LoadMoreItem刚好隐藏，前提是有足够的下滑空间
+                    View firstChild = recyclerView.getChildAt(0);
+                    if (firstChild == null) {
+                        return;
+                    }
+                    int available = firstChild.getTop() - recyclerView.getPaddingTop();
+                    // deltaY是需要下滑的距离，available是可用距离
                     if (deltaY > 0) {
-                        recyclerView.smoothScrollBy(0, -deltaY);
+                        recyclerView.smoothScrollBy(0, -Math.min(deltaY, Math.abs(available)));
                     }
                 } else if (lastCompletePosition == mAdapter.getItemCount() - 1) {
                     // 触发LoadMore操作前提，滑动list，LoadMoreView逐渐展示出来
