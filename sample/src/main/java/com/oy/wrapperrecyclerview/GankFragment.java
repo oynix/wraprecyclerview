@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.github.oynix.library.xRecyclerView;
 import com.oy.wrapperrecyclerview.adapter.GankNewsAdapter;
 import com.oy.wrapperrecyclerview.bean.GankNewsBean;
 import com.oy.wrapperrecyclerview.contract.GankContract;
 import com.oy.wrapperrecyclerview.contract.GankPresenter;
+import com.oynix.xrecyclerview.xRecyclerView;
 
 import java.util.List;
 
