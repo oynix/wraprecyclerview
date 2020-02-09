@@ -1,9 +1,19 @@
-## 具备下拉刷新和上拉加载更多的`RecyclerView`
+## 支持下拉刷新和上拉加载更多的`RecyclerView`
 具体介绍请看：[传送门](https://github.com/oynix/android-learn/blob/master/widget/xRecyclerView/xRecyclerView.md)
 
-最新版本：2.0.0
-
 ### 使用
+现已发布到两个源：JitPack 和 jCenter
+
+> 两个平台加载下来的代码是一样的，区别在于导入时使用的 groupId 和 artifactId 的不同，以及版本号。
+> 建议使用 jCenter，省事一些
+
+#### 一. jCenter 最新版本：1.0.0
+```groovy
+dependencies {
+    implementation 'com.oynix.xrecyclerview:xrecyclerview:1.0.0'
+}
+```
+#### 二. JitPack 最新版本：2.0.0
 1. 根目录`build.gradle`添加
 ```groovy
 allprojects {
@@ -21,13 +31,12 @@ dependencies {
 ```
 3. Sync，即可。[详细说明](https://github.com/oynix/android-learn/blob/master/widget/xRecyclerView/xRecyclerView.md)
 
--------------------------------
 
-#### 2020.02.08
+#### 2020.02.08更新
 - v2.0.0
 调整包名
 
-#### 2020.02.07
+#### 2020.02.07更新
 - v1.0.0
 修复已知问题，增加自定义LoadMoreView，发布至`JitPack`
 - v1.0.1

@@ -46,5 +46,6 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-    implementation 'com.github.oynix:wraprecyclerview:2.0.0'
+//    implementation 'com.github.oynix:wraprecyclerview:2.0.0'
+    implementation 'com.oynix.xrecyclerview:xrecyclerview:1.0'
 }

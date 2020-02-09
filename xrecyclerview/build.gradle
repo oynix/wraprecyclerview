@@ -3,7 +3,6 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 29
 
-
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
@@ -37,3 +36,5 @@ dependencies {
     api 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 
 }
+
+apply from: 'bintrayUpload.gradle'
